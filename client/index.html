@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud Upload</title>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="icon.png">
+</head>
+
+<body>
+
+  <div class="upload-card">
+
+    <h1>File Upload</h1>
+    <p class="subtitle">Upload your documents securely to the cloud</p>
+
+    <form id="upload-form">
+      <!-- Dropzone -->
+      <div class="dropzone" id="dropzone">
+        <div class="dropzone-content">
+          <img src="icon.png" alt="" class="icon-cloud">
+          <div class="dropzone-text">Click or drag file to this area to upload</div>
+          <div class="dropzone-hint">Support for a single big file upload</div>
+        </div>
+        <input type="file" id="file" name="file" />
+      </div>
+
+      <!-- Selected File Info -->
+      <div class="file-info" id="file-info">
+        <div class="file-icon">📄</div>
+        <div class="file-details">
+          <div class="file-name" id="file-name">filename.zip</div>
+          <div class="file-size" id="file-size">10.5 MB</div>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="progress-container" id="progress-container">
+        <div class="progress-labels">
+          <span id="progress-text">Uploading...</span>
+          <span id="progress-percent">0%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progress-bar"></div>
+        </div>
+      </div>
+
+      <!-- Status Message -->
+      <div id="message"></div>
+
+      <!-- Actions -->
+      <div class="actions">
+        <button type="reset" class="btn btn-secondary" id="reset-btn">Reset</button>
+        <button type="submit" class="btn btn-primary" id="upload-btn">Start Upload</button>
+      </div>
+    </form>
+  </div>
+
+  <script type="module" src="index.ts"></script>
+</body>
+
+</html>

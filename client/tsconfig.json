@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "target": "ESNext" ,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "moduleResolution": "nodenext",
+    "lib": ["dom", "es2015", "ESNext"],
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"]
+}
