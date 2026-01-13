@@ -1,13 +1,18 @@
 package main
 
 import (
+	"context"
 	"log"
 	"os"
 
 	"github.com/joho/godotenv"
+	"github.com/lanxizhu/go-playground/utils"
+
 	// _ "github.com/joho/godotenv/autoload"
 	"github.com/lanxizhu/go-playground/router"
 )
+
+var ctx = context.Background()
 
 func main() {
 	if err := godotenv.Load(".env"); err != nil {
@@ -20,6 +25,8 @@ func main() {
 	log.Println("PORT: " + port)
 
 	r := router.SetupRouter()
+
+	utils.SetupRedis(ctx)
 
 	err := r.Run()
 	if err != nil {
