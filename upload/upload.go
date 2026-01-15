@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
 	"os"
 	"path/filepath"
 	"strconv"
@@ -133,6 +134,12 @@ func Complete(c *gin.Context) {
 	if fileId == "" || fileName == "" || totalChunks <= 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "md5, fileName, totalChunks are required"})
 		return
+	}
+
+	if FileName, err := url.PathUnescape(fileName); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Failed to unescape file name"})
+	} else {
+		fileName = FileName
 	}
 
 	key := fmt.Sprintf("upload_status:%s", fileId)

@@ -223,7 +223,7 @@ async function completeUpload(file: File, fileId: string, totalChunks: number) {
     const res = await axios.post("upload/complete", null, {
       headers: {
         "X-File-Id": fileId,
-        "X-File-Name": file.name,
+        "X-File-Name": encodeURIComponent(file.name),
         "X-Total-Chunks": totalChunks,
         "Content-Type": "multipart/form-data",
       }
